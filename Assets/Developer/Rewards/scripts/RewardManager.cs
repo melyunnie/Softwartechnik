@@ -1,9 +1,15 @@
+using TMPro;
 using UnityEngine;
 
 public class RewardManager : MonoBehaviour
 {
-    private enum TypeofReward {Currenzy,Xp, achivemnetpoints }
-    [SerializeField] TypeofReward typeofReward;
+    public enum TypeofReward {None,Currency,XP,Achivemnetpoints,Items,Cosmetics,UItheams,Picture, Titles}
+    [SerializeField] public TypeofReward typeofReward;
+    [SerializeField] public float amount;
+    [SerializeField] public GameObject prefab;
+    [SerializeField] public string text;
+    [SerializeField] public float fontsize;
+
     void Start()
     {
         
