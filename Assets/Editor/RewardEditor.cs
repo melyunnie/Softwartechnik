@@ -1,4 +1,5 @@
 
+using System.ComponentModel;
 using System.Security.Policy;
 using UnityEditor;
 using UnityEditor.Rendering;
@@ -18,6 +19,7 @@ public class RewardEditor : Editor
     SerializedProperty fontsize;
 
     bool Isnew=false;
+    int Rewardnumber = 0;
     #endregion
     private void OnEnable()
     {
@@ -30,34 +32,51 @@ public class RewardEditor : Editor
     public override void OnInspectorGUI()
     {
         serializedObject.Update();
-        //add new rewards
-        //eimnalige rewards
+        //add new rewards-> hängen alle noch zusammen
+        //saven nicht
         //event binding?
-        EditorGUILayout.PropertyField(typeofReward);
-        RewardManager _rewardManager = (RewardManager)target;
-       
-
-        if (_rewardManager.typeofReward == RewardManager.TypeofReward.Currency)
-        { EditorGUILayout.PropertyField(amount); }
-        if (_rewardManager.typeofReward == RewardManager.TypeofReward.XP)
-        { EditorGUILayout.PropertyField(amount); }
-        if (_rewardManager.typeofReward == RewardManager.TypeofReward.Achivemnetpoints)
-        { EditorGUILayout.PropertyField(amount); }
-        if (_rewardManager.typeofReward == RewardManager.TypeofReward.Items)
-        { EditorGUILayout.ObjectField(prefab); }
-        if (_rewardManager.typeofReward == RewardManager.TypeofReward.Cosmetics)
-        {EditorGUILayout.ObjectField(prefab);}
-        if (_rewardManager.typeofReward == RewardManager.TypeofReward.UItheams)
-          { EditorGUILayout.ObjectField(prefab);}
-        if (_rewardManager.typeofReward == RewardManager.TypeofReward.Picture)
-        { EditorGUILayout.ObjectField(prefab); }
-        if (_rewardManager.typeofReward == RewardManager.TypeofReward.Titles)
-        {EditorGUILayout.PropertyField(fontsize);
-         EditorGUILayout.PropertyField(text, GUILayout.Height(80));
-            //customfond
+           if (GUILayout.Button("Add Reward"))
+        {
+            Rewardnumber++;
         }
+        for (int i = 0; i < Rewardnumber; i++)
+        {
+            EditorGUILayout.PropertyField(typeofReward);
 
-        serializedObject.ApplyModifiedProperties();
+
+
+            RewardManager _rewardManager = (RewardManager)target;
+
+
+            if (_rewardManager.typeofReward == RewardManager.TypeofReward.Currency)
+            { EditorGUILayout.PropertyField(amount); }
+            if (_rewardManager.typeofReward == RewardManager.TypeofReward.XP)
+            { EditorGUILayout.PropertyField(amount); }
+            if (_rewardManager.typeofReward == RewardManager.TypeofReward.Achivemnetpoints)
+            { EditorGUILayout.PropertyField(amount); }
+            if (_rewardManager.typeofReward == RewardManager.TypeofReward.Items)
+            { EditorGUILayout.ObjectField(prefab); }
+            if (_rewardManager.typeofReward == RewardManager.TypeofReward.Cosmetics)
+            { EditorGUILayout.ObjectField(prefab); }
+            if (_rewardManager.typeofReward == RewardManager.TypeofReward.UItheams)
+            { EditorGUILayout.ObjectField(prefab); }
+            if (_rewardManager.typeofReward == RewardManager.TypeofReward.Picture)
+            { EditorGUILayout.ObjectField(prefab); }
+            if (_rewardManager.typeofReward == RewardManager.TypeofReward.Titles)
+            {
+                EditorGUILayout.PropertyField(fontsize);
+                EditorGUILayout.PropertyField(text, GUILayout.Height(80));//customfond
+            } 
+        }serializedObject.ApplyModifiedProperties();
+            
+          
+           
+     
+        
+
+        
+
+           
     }
 }
 
