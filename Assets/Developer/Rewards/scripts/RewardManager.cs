@@ -1,14 +1,22 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class RewardManager : MonoBehaviour
 {
-    public enum TypeofReward {None,Currency,XP,Achivemnetpoints,Items,Cosmetics,UItheams,Picture, Titles}
-    [SerializeField] public TypeofReward typeofReward;
-    [SerializeField] public float amount;
-    [SerializeField] public GameObject prefab;
-    [SerializeField] public string text;
-    [SerializeField] public float fontsize;
+    public enum TypeofReward {None,Currency,XP,Achivemnetpoints,Items,Cosmetics,UIOverlay,Picture, Titles}
+    [System.Serializable]
+    public class Reward
+    {
+        public TypeofReward typeofReward;
+        public int amount;
+        public GameObject yourIntValue;
+        public GameObject prefab;
+        public int fontsize;
+        public string text;
+    }
+
+    public List<Reward> rewards = new List<Reward>();
 
     void Start()
     {

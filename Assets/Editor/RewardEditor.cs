@@ -11,23 +11,34 @@ using UnityEngine.UIElements;
 public class RewardEditor : Editor
 {
     #region SerilazedProperty
-    SerializedProperty typeofReward;
-    SerializedProperty amount;
-    SerializedProperty prefab;
-
-    SerializedProperty text;
-    SerializedProperty fontsize;
-
-    bool Isnew=false;
-    int Rewardnumber = 0;
+ 
+    SerializedProperty rewardsProp;
     #endregion
+    //?????????????????-> muss nochmal schauen wie ich das machen kann
+    #region Uservariables
+    //Note:for declearing int values
+
+    //name of the Script Intvalue
+
+    //your int value needts to be public to be used
+
+
+
+    #endregion
+
+    #region Examples of Uservariables
+    CurrencyValueTextExample Intvalue;
+
+    #endregion
+    //?????????????????
     private void OnEnable()
     {
-        typeofReward = serializedObject.FindProperty("typeofReward");
-        amount = serializedObject.FindProperty("amount");
-        prefab = serializedObject.FindProperty("prefab");
-        text = serializedObject.FindProperty("text");
-        fontsize = serializedObject.FindProperty("fontsize");
+        //yourValue
+        
+            rewardsProp = serializedObject.FindProperty("rewards");
+        
+
+
     }
     public override void OnInspectorGUI()
     {
@@ -35,48 +46,57 @@ public class RewardEditor : Editor
         //add new rewards-> hängen alle noch zusammen
         //saven nicht
         //event binding?
-           if (GUILayout.Button("Add Reward"))
+        if (GUILayout.Button("Add Reward"))
         {
-            Rewardnumber++;
+            rewardsProp.arraySize++;
         }
-        for (int i = 0; i < Rewardnumber; i++)
+       
+        for (int i = 0; i < rewardsProp.arraySize; i++)
         {
-            EditorGUILayout.PropertyField(typeofReward);
+            SerializedProperty reward = rewardsProp.GetArrayElementAtIndex(i);
 
+            SerializedProperty type = reward.FindPropertyRelative("typeofReward");
+            SerializedProperty amount = reward.FindPropertyRelative("amount");
+            SerializedProperty prefab = reward.FindPropertyRelative("prefab");
+            SerializedProperty yourIntValue = reward.FindPropertyRelative("yourIntValue");//?
+            SerializedProperty fontsize = reward.FindPropertyRelative("fontsize");
+            SerializedProperty text = reward.FindPropertyRelative("text");
 
+            EditorGUILayout.PropertyField(type);
 
-            RewardManager _rewardManager = (RewardManager)target;
+            RewardManager.TypeofReward enumValue =
+                (RewardManager.TypeofReward)type.enumValueIndex;
 
-
-            if (_rewardManager.typeofReward == RewardManager.TypeofReward.Currency)
-            { EditorGUILayout.PropertyField(amount); }
-            if (_rewardManager.typeofReward == RewardManager.TypeofReward.XP)
-            { EditorGUILayout.PropertyField(amount); }
-            if (_rewardManager.typeofReward == RewardManager.TypeofReward.Achivemnetpoints)
-            { EditorGUILayout.PropertyField(amount); }
-            if (_rewardManager.typeofReward == RewardManager.TypeofReward.Items)
-            { EditorGUILayout.ObjectField(prefab); }
-            if (_rewardManager.typeofReward == RewardManager.TypeofReward.Cosmetics)
-            { EditorGUILayout.ObjectField(prefab); }
-            if (_rewardManager.typeofReward == RewardManager.TypeofReward.UItheams)
-            { EditorGUILayout.ObjectField(prefab); }
-            if (_rewardManager.typeofReward == RewardManager.TypeofReward.Picture)
-            { EditorGUILayout.ObjectField(prefab); }
-            if (_rewardManager.typeofReward == RewardManager.TypeofReward.Titles)
+            switch (enumValue)
             {
-                EditorGUILayout.PropertyField(fontsize);
-                EditorGUILayout.PropertyField(text, GUILayout.Height(80));//customfond
-            } 
-        }serializedObject.ApplyModifiedProperties();
-            
-          
-           
-     
+                case RewardManager.TypeofReward.Currency:
+                case RewardManager.TypeofReward.XP:
+                case RewardManager.TypeofReward.Achivemnetpoints:
+                    EditorGUILayout.PropertyField(amount); EditorGUILayout.PropertyField(yourIntValue);//?
+                    break;
+
+                case RewardManager.TypeofReward.Items:
+                case RewardManager.TypeofReward.Cosmetics:
+                case RewardManager.TypeofReward.UIOverlay:
+                case RewardManager.TypeofReward.Picture:
+                    EditorGUILayout.PropertyField(prefab);
+                    break;
+
+                case RewardManager.TypeofReward.Titles:
+                    EditorGUILayout.PropertyField(fontsize);
+                    EditorGUILayout.PropertyField(text, GUILayout.Height(80));
+                    break;
+            }
+
+            EditorGUILayout.Space();
+        }
+        if (GUILayout.Button("remove Reward")&& rewardsProp.arraySize!=0)
+        {
+            rewardsProp.arraySize--;
+        }
         
 
-        
-
-           
+        serializedObject.ApplyModifiedProperties();
     }
 }
 

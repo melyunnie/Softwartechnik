@@ -163,11 +163,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc6f4aa39c63d5c4ebdcded648336a55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeofReward: 7
-  amount: 3424
-  prefab: {fileID: 0}
-  text: 
-  fontsize: 0
+  rewards:
+  - typeofReward: 1
+    amount: 23424
+    yourIntValue: {fileID: 0}
+    prefab: {fileID: 0}
+    fontsize: 0
+    text: 
+  - typeofReward: 4
+    amount: 0
+    yourIntValue: {fileID: 0}
+    prefab: {fileID: 0}
+    fontsize: 0
+    text: 
+  - typeofReward: 6
+    amount: 0
+    yourIntValue: {fileID: 0}
+    prefab: {fileID: 0}
+    fontsize: 0
+    text: 
+  - typeofReward: 6
+    amount: 0
+    yourIntValue: {fileID: 0}
+    prefab: {fileID: 0}
+    fontsize: 0
+    text: 
 --- !u!1 &575531328
 GameObject:
   m_ObjectHideFlags: 0
