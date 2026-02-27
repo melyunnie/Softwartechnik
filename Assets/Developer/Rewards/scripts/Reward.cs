@@ -1,30 +1,58 @@
 using UnityEngine;
+using static RewardManager;
 
 public class Reward : MonoBehaviour,IRewardable
 {
 
     public bool IsGetReward;
     public RewardManager rewardManager;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
         
     }
-
-    // Update is called once per frame
     void Update()
     {
+        
         GetReward();
     }
     public void GetReward()
     {
-        if (IsGetReward == true)
+        if (IsGetReward == true&& rewardManager.rewards[0]!=null)
         {
-            int amount = rewardManager.rewards[0].amount;
-           
-            CurrencyValueTextExample Yourscript= rewardManager.rewards[0].yourIntValue.GetComponent<CurrencyValueTextExample>();
-            int Yourvalue = Yourscript.Currency;
-            Debug.Log(amount+ Yourvalue);
+            switch (rewardManager.rewards[0].typeofReward)
+            {
+                case TypeofReward.Currency:
+                    CurrencyReward();
+                    break;
+                case TypeofReward.XP:
+                    XpReward();
+                    break;
+                case TypeofReward.Achivemnetpoints:
+                    AchivementReward();
+                    break;
+
+            }
+            IsGetReward = false;
         }
     }
+    void CurrencyReward() 
+    {
+        int currencyAmount = rewardManager.rewards[0].amount;
+
+        CurrencyValueTextExample CurrencyScript = rewardManager.rewards[0].yourIntValue.GetComponent<CurrencyValueTextExample>();
+        int YourCurrency = CurrencyScript.Currency;
+        Debug.Log(currencyAmount + YourCurrency);
+        CurrencyScript.Currency = currencyAmount + YourCurrency;
+       
+    }
+    void XpReward() 
+    {
+        int xpAmount = rewardManager.rewards[0].amount;
+    }
+    void AchivementReward() 
+    {
+        int AchivementAmount = rewardManager.rewards[0].amount;
+    }
+
 }

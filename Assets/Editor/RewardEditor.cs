@@ -34,7 +34,7 @@ public class RewardEditor : Editor
     //?????????????????
     private void OnEnable()
     {
-        //yourValue
+        
         
             rewardsProp = serializedObject.FindProperty("rewards");
         
@@ -44,8 +44,7 @@ public class RewardEditor : Editor
     public override void OnInspectorGUI()
     {
         serializedObject.Update();
-        //add new rewards-> hängen alle noch zusammen
-        //saven nicht
+       
         //event binding?
         
         if (GUILayout.Button("Add Reward"))
@@ -60,7 +59,7 @@ public class RewardEditor : Editor
             SerializedProperty type = reward.FindPropertyRelative("typeofReward");
             SerializedProperty amount = reward.FindPropertyRelative("amount");
             SerializedProperty prefab = reward.FindPropertyRelative("prefab");
-            SerializedProperty yourIntValue = reward.FindPropertyRelative("yourIntValue");//?
+            SerializedProperty yourIntValue = reward.FindPropertyRelative("yourIntValue");
             SerializedProperty fontsize = reward.FindPropertyRelative("fontsize");
             SerializedProperty text = reward.FindPropertyRelative("text");
             SerializedProperty PlaceToStoreReward = reward.FindPropertyRelative("PlaceToStoreReward");
@@ -74,7 +73,7 @@ public class RewardEditor : Editor
                 case RewardManager.TypeofReward.Currency:
                 case RewardManager.TypeofReward.XP:
                 case RewardManager.TypeofReward.Achivemnetpoints:
-                    EditorGUILayout.PropertyField(amount); EditorGUILayout.PropertyField(PlaceToStoreReward); EditorGUILayout.PropertyField(yourIntValue);//?
+                    EditorGUILayout.PropertyField(amount); EditorGUILayout.PropertyField(yourIntValue);
                     break;
 
                 case RewardManager.TypeofReward.Items:
