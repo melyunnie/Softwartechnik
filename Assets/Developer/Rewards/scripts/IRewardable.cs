@@ -1,16 +1,7 @@
 using UnityEngine;
 
-public class IRewardable : MonoBehaviour
-{
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+public interface IRewardable
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+{
+    void GetReward();
 }

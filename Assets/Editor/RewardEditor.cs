@@ -5,6 +5,7 @@ using UnityEditor;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static RewardManager;
 
 [CustomEditor(typeof(RewardManager))]
 
@@ -46,11 +47,12 @@ public class RewardEditor : Editor
         //add new rewards-> hängen alle noch zusammen
         //saven nicht
         //event binding?
+        
         if (GUILayout.Button("Add Reward"))
         {
             rewardsProp.arraySize++;
         }
-       
+        
         for (int i = 0; i < rewardsProp.arraySize; i++)
         {
             SerializedProperty reward = rewardsProp.GetArrayElementAtIndex(i);
@@ -61,7 +63,7 @@ public class RewardEditor : Editor
             SerializedProperty yourIntValue = reward.FindPropertyRelative("yourIntValue");//?
             SerializedProperty fontsize = reward.FindPropertyRelative("fontsize");
             SerializedProperty text = reward.FindPropertyRelative("text");
-
+            SerializedProperty PlaceToStoreReward = reward.FindPropertyRelative("PlaceToStoreReward");
             EditorGUILayout.PropertyField(type);
 
             RewardManager.TypeofReward enumValue =
@@ -72,19 +74,19 @@ public class RewardEditor : Editor
                 case RewardManager.TypeofReward.Currency:
                 case RewardManager.TypeofReward.XP:
                 case RewardManager.TypeofReward.Achivemnetpoints:
-                    EditorGUILayout.PropertyField(amount); EditorGUILayout.PropertyField(yourIntValue);//?
+                    EditorGUILayout.PropertyField(amount); EditorGUILayout.PropertyField(PlaceToStoreReward); EditorGUILayout.PropertyField(yourIntValue);//?
                     break;
 
                 case RewardManager.TypeofReward.Items:
                 case RewardManager.TypeofReward.Cosmetics:
                 case RewardManager.TypeofReward.UIOverlay:
                 case RewardManager.TypeofReward.Picture:
-                    EditorGUILayout.PropertyField(prefab);
+                    EditorGUILayout.PropertyField(prefab); EditorGUILayout.PropertyField(PlaceToStoreReward);
                     break;
 
                 case RewardManager.TypeofReward.Titles:
                     EditorGUILayout.PropertyField(fontsize);
-                    EditorGUILayout.PropertyField(text, GUILayout.Height(80));
+                    EditorGUILayout.PropertyField(text, GUILayout.Height(80)); EditorGUILayout.PropertyField(PlaceToStoreReward);
                     break;
             }
 

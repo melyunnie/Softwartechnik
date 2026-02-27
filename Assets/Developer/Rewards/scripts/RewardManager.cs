@@ -14,9 +14,12 @@ public class RewardManager : MonoBehaviour
         public GameObject prefab;
         public int fontsize;
         public string text;
+         public GameObject PlaceToStoreReward;
     }
+  
 
     public List<Reward> rewards = new List<Reward>();
+    public bool GetsReward;
 
     void Start()
     {
@@ -27,6 +30,7 @@ public class RewardManager : MonoBehaviour
     void Update()
     {
         
+
     }
     //name reward:
          //(int)currency/level-> how much
