@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 using static RewardManager;
 
@@ -6,6 +7,7 @@ public class Reward : MonoBehaviour,IRewardable
 
     public bool IsGetReward;
     public RewardManager rewardManager;
+    int i;
 
     void Start()
     {
@@ -18,42 +20,45 @@ public class Reward : MonoBehaviour,IRewardable
     }
     public void GetReward()
     {
-        if (IsGetReward == true &&   rewardManager.rewards != null )
+        if (IsGetReward == true && rewardManager.rewards != null)
         {
-            if (rewardManager.rewards[0].typeofReward == TypeofReward.Currency)
-            { CurrencyReward(); IsGetReward = false; }
-            if (rewardManager.rewards[1].typeofReward == TypeofReward.XP) { XpReward(); IsGetReward = false; }
-            if (rewardManager.rewards[2].typeofReward == TypeofReward.Achivemnetpoints) { AchivementReward(); IsGetReward = false; }
+            for ( i = 0; i < rewardManager.rewards.Count; i++)
+            {
+                {
+                    if (rewardManager.rewards[i].typeofReward == TypeofReward.Currency)
+                    { CurrencyReward();  }
+                    if (rewardManager.rewards[i].typeofReward == TypeofReward.XP) { XpReward();  }
+                    if (rewardManager.rewards[i].typeofReward == TypeofReward.Achivemnetpoints) { AchivementReward();  }
+                    if (rewardManager.rewards[i].typeofReward == TypeofReward.Items || rewardManager.rewards[i].typeofReward == TypeofReward.Cosmetics|| rewardManager.rewards[i].typeofReward == TypeofReward.UIOverlay|| rewardManager.rewards[i].typeofReward == TypeofReward.Picture) { InstanziateGameobject(); }
 
-            
+
+                }
+            }IsGetReward = false;  
         }
-    }
-    void CurrencyReward() 
+    }  
+    void CurrencyReward()
     {
-
-        int currencyAmount = rewardManager.rewards[0].amount;
-
-        CurrencyValueTextExample CurrencyScript = rewardManager.rewards[0].yourIntValue.GetComponent<CurrencyValueTextExample>();
+        int currencyAmount = rewardManager.rewards[i].amount;
+        CurrencyValueTextExample CurrencyScript = rewardManager.rewards[i].yourIntValue.GetComponent<CurrencyValueTextExample>();
         int YourCurrency = CurrencyScript.Currency;
-       
         CurrencyScript.Currency = currencyAmount + YourCurrency;
-       
+
     }
-    void XpReward() 
+    void XpReward()
     {
-        int xpAmount = rewardManager.rewards[1].amount;
-        XpValueTestExample XpScript = rewardManager.rewards[1].yourIntValue.GetComponent<XpValueTestExample>();
-        int YourXp= XpScript.XP;
-        
+        int xpAmount = rewardManager.rewards[i].amount;
+        XpValueTestExample XpScript = rewardManager.rewards[i].yourIntValue.GetComponent<XpValueTestExample>();
+        int YourXp = XpScript.XP;
         XpScript.XP = xpAmount + YourXp;
     }
-    void AchivementReward() 
+    void AchivementReward()
     {
-        int AchivementAmount = rewardManager.rewards[2].amount;
-        AchivementValueTestExample AchivementPointsScript = rewardManager.rewards[2].yourIntValue.GetComponent<AchivementValueTestExample>();
+        int AchivementAmount = rewardManager.rewards[i].amount;
+        AchivementValueTestExample AchivementPointsScript = rewardManager.rewards[i].yourIntValue.GetComponent<AchivementValueTestExample>();
         int YourXp = AchivementPointsScript.points;
-
         AchivementPointsScript.points = AchivementAmount + YourXp;
     }
-
+    void InstanziateGameobject() { Debug.Log("gameobject"+ i); GameObject InstantiatedGameObject = rewardManager.rewards[i].prefab;
+        InstantiatedGameObject.transform.SetParent(rewardManager.rewards[i].PlaceToStoreReward);
+    }     
 }

@@ -13,7 +13,7 @@ public class RewardEditor : Editor
 {
     #region SerilazedProperty
  
-    SerializedProperty rewardsProp;
+   SerializedProperty rewardsProp;
     #endregion
     //?????????????????-> muss nochmal schauen wie ich das machen kann
     #region Uservariables
@@ -32,7 +32,7 @@ public class RewardEditor : Editor
 
     #endregion
     //?????????????????
-    private void OnEnable()
+    public void OnEnable()
     {
         
         

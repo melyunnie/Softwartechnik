@@ -14,7 +14,7 @@ public class RewardManager : MonoBehaviour
         public GameObject prefab;
         public int fontsize;
         public string text;
-         public GameObject PlaceToStoreReward;
+         public Transform PlaceToStoreReward;
     }
   
 

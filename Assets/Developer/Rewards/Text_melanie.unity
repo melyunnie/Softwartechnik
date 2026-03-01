@@ -1356,27 +1356,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rewards:
+  - typeofReward: 4
+    amount: 0
+    yourIntValue: {fileID: 0}
+    prefab: {fileID: 1984995074}
+    fontsize: 0
+    text: 
+    PlaceToStoreReward: {fileID: 983881732}
   - typeofReward: 1
-    amount: 5
+    amount: 4
     yourIntValue: {fileID: 456550787}
-    prefab: {fileID: 0}
+    prefab: {fileID: 983881731}
     fontsize: 0
     text: 
-    PlaceToStoreReward: {fileID: 0}
-  - typeofReward: 2
-    amount: 1
-    yourIntValue: {fileID: 433363435}
-    prefab: {fileID: 0}
-    fontsize: 0
-    text: 
-    PlaceToStoreReward: {fileID: 0}
-  - typeofReward: 3
-    amount: 7
-    yourIntValue: {fileID: 983881731}
-    prefab: {fileID: 0}
-    fontsize: 0
-    text: 
-    PlaceToStoreReward: {fileID: 0}
+    PlaceToStoreReward: {fileID: 433363435}
   GetsReward: 0
 --- !u!1 &1794516599
 GameObject:
@@ -1515,6 +1508,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1794516599}
   m_CullTransparentMesh: 1
+--- !u!1 &1984995074
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1984995075}
+  m_Layer: 0
+  m_Name: prefab test
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1984995075
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984995074}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 487.60992, y: 251.64276, z: -31.528097}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2063984915
 GameObject:
   m_ObjectHideFlags: 0
@@ -1665,3 +1689,4 @@ SceneRoots:
   - {fileID: 433363437}
   - {fileID: 983881732}
   - {fileID: 1655838935}
+  - {fileID: 1984995075}
