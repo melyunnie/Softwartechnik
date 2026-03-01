@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using static RewardManager;
@@ -8,7 +9,7 @@ public class Reward : MonoBehaviour,IRewardable
     public bool IsGetReward;
     public RewardManager rewardManager;
     int i;
-
+    //rewards nur einmal oder mehrmals
     void Start()
     {
         
@@ -25,12 +26,18 @@ public class Reward : MonoBehaviour,IRewardable
             for ( i = 0; i < rewardManager.rewards.Count; i++)
             {
                 {
-                    if (rewardManager.rewards[i].typeofReward == TypeofReward.Currency)
-                    { CurrencyReward();  }
+                    if (rewardManager.rewards[i].typeofReward == TypeofReward.Currency) { CurrencyReward();  }
                     if (rewardManager.rewards[i].typeofReward == TypeofReward.XP) { XpReward();  }
                     if (rewardManager.rewards[i].typeofReward == TypeofReward.Achivemnetpoints) { AchivementReward();  }
-                    if (rewardManager.rewards[i].typeofReward == TypeofReward.Items || rewardManager.rewards[i].typeofReward == TypeofReward.Cosmetics|| rewardManager.rewards[i].typeofReward == TypeofReward.UIOverlay|| rewardManager.rewards[i].typeofReward == TypeofReward.Picture) { InstanziateGameobject(); }
 
+                    if (rewardManager.rewards[i].typeofReward == TypeofReward.Items || rewardManager.rewards[i].typeofReward == TypeofReward.Cosmetics
+                        || rewardManager.rewards[i].typeofReward == TypeofReward.UIOverlay|| rewardManager.rewards[i].typeofReward == TypeofReward.Picture) 
+                        { 
+                        InstanziateGameobject();
+                        }
+
+                    if (rewardManager.rewards[i].typeofReward == TypeofReward.Titles)
+                    { TextReward(); }
 
                 }
             }IsGetReward = false;  
@@ -58,7 +65,21 @@ public class Reward : MonoBehaviour,IRewardable
         int YourXp = AchivementPointsScript.points;
         AchivementPointsScript.points = AchivementAmount + YourXp;
     }
-    void InstanziateGameobject() { Debug.Log("gameobject"+ i); GameObject InstantiatedGameObject = rewardManager.rewards[i].prefab;
+    void InstanziateGameobject() {  GameObject InstantiatedGameObject = rewardManager.rewards[i].prefab;
         InstantiatedGameObject.transform.SetParent(rewardManager.rewards[i].PlaceToStoreReward);
-    }     
+    }
+    void TextReward()
+    {
+        Debug.Log("Text" + i);
+        string RewardText = rewardManager.rewards[i].text;
+        TMP_Text YourTextBox = rewardManager.rewards[i].YourTextbox;
+        int fontsize = rewardManager.rewards[i].fontsize;
+        Color Textcolor = rewardManager.rewards[i].Textcolor;
+
+       TMP_FontAsset fontasset= rewardManager.rewards[i].fontAsset;
+        YourTextBox.fontSize = fontsize;
+        YourTextBox.text = RewardText;
+        YourTextBox.color = Textcolor;
+        YourTextBox.font = fontasset;
+    }
 }

@@ -12,11 +12,18 @@ public class RewardManager : MonoBehaviour
         public int amount;
         public GameObject yourIntValue;
         public GameObject prefab;
-        public int fontsize;
-        public string text;
          public Transform PlaceToStoreReward;
+
+        public int fontsize;
+        public TMP_FontAsset fontAsset;
+       
+        public Color Textcolor;
+        public string text;
+        public TMP_Text YourTextbox;
+        
+       
     }
-  
+    //rewards nur einmal oder mehrmals
 
     public List<Reward> rewards = new List<Reward>();
     public bool GetsReward;
@@ -32,14 +39,5 @@ public class RewardManager : MonoBehaviour
         
 
     }
-    //name reward:
-         //(int)currency/level-> how much
-        // object/gameobject
-        //images
-        //strings
-
-    //number of rewarts-> + add more
-
-    //einzelne reward nur einmal oder mehrmals?
 
 }

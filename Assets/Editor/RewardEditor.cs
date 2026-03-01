@@ -1,6 +1,7 @@
 
 using System.ComponentModel;
 using System.Security.Policy;
+using TMPro;
 using UnityEditor;
 using UnityEditor.Rendering;
 using UnityEngine;
@@ -44,9 +45,9 @@ public class RewardEditor : Editor
     public override void OnInspectorGUI()
     {
         serializedObject.Update();
-       
-        //event binding?
-        
+
+        //rewards nur einmal oder mehrmals
+
         if (GUILayout.Button("Add Reward"))
         {
             rewardsProp.arraySize++;
@@ -58,11 +59,16 @@ public class RewardEditor : Editor
 
             SerializedProperty type = reward.FindPropertyRelative("typeofReward");
             SerializedProperty amount = reward.FindPropertyRelative("amount");
-            SerializedProperty prefab = reward.FindPropertyRelative("prefab");
             SerializedProperty yourIntValue = reward.FindPropertyRelative("yourIntValue");
+
+            SerializedProperty prefab = reward.FindPropertyRelative("prefab");
+            SerializedProperty PlaceToStoreReward = reward.FindPropertyRelative("PlaceToStoreReward");
+            
             SerializedProperty fontsize = reward.FindPropertyRelative("fontsize");
             SerializedProperty text = reward.FindPropertyRelative("text");
-            SerializedProperty PlaceToStoreReward = reward.FindPropertyRelative("PlaceToStoreReward");
+            SerializedProperty fontAsset = reward.FindPropertyRelative("fontAsset");
+            SerializedProperty Textcolor = reward.FindPropertyRelative("Textcolor");
+            SerializedProperty YourTextbox= reward.FindPropertyRelative("YourTextbox");
             EditorGUILayout.PropertyField(type);
 
             RewardManager.TypeofReward enumValue =
@@ -84,8 +90,7 @@ public class RewardEditor : Editor
                     break;
 
                 case RewardManager.TypeofReward.Titles:
-                    EditorGUILayout.PropertyField(fontsize);
-                    EditorGUILayout.PropertyField(text, GUILayout.Height(80)); EditorGUILayout.PropertyField(PlaceToStoreReward);
+                    EditorGUILayout.PropertyField(fontsize); EditorGUILayout.PropertyField(fontAsset);  EditorGUILayout.PropertyField(Textcolor); EditorGUILayout.PropertyField(text, GUILayout.Height(80)); EditorGUILayout.PropertyField(YourTextbox);
                     break;
             }
 
