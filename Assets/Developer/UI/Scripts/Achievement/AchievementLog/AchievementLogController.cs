@@ -17,6 +17,7 @@ public class AchievementLogController : UIAchievementController
     [SerializeField] protected TMP_Text _AchievementDescriptionProgress;
     public TMP_Text achievementDescriptionReward;
 
+
     public override void ShowLogController(bool status)
     {
         if (status)

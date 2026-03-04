@@ -6,7 +6,6 @@ public class AchievementToastNotifications : UIAchievementController
 {
     [Header("----AchievementPopUp Components----")]
     [SerializeField] protected CanvasGroup _AchievementPopUpCanvasGroup;
-    [SerializeField] private GameObject achievementPopUp;
 
     [Header("----AchievementPopUp Variables----")]
     [SerializeField] protected static bool _DisturbModeActive;

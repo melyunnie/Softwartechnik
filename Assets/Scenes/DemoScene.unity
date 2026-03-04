@@ -148,6 +148,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bac52c8376059554cb7a45a8e4064801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  achievementsSO:
+  - {fileID: 11400000, guid: 2ad5b2c586304d947bdfb48943908a7a, type: 2}
+  achievementC: 0
+  _KeyToOpenLog: 27
 --- !u!4 &33211561
 Transform:
   m_ObjectHideFlags: 0
@@ -267,6 +271,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5646975288864448259, guid: 6e746c83f2dbc644f8273ce64b603123, type: 3}
+      propertyPath: popUpNotificationPrefab
+      value: 
+      objectReference: {fileID: 3393875526741121341, guid: 258a41cbb6cbca04095ebbe05c4192b5, type: 3}
+    - target: {fileID: 5646975288864448259, guid: 6e746c83f2dbc644f8273ce64b603123, type: 3}
+      propertyPath: progressionNotificationPrefab
+      value: 
+      objectReference: {fileID: 7491284434225334164, guid: cb535a8df563ee04a9c19dfde246b7ee, type: 3}
     - target: {fileID: 6125268655441273492, guid: 6e746c83f2dbc644f8273ce64b603123, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

@@ -13,7 +13,7 @@ public class AchievementPopUp : AchievementToastNotifications
         _AchievementIcon.sprite = achievement.achievementSprite;
         _AchievementNameText.text = achievement.achievementName;
 
-        if (CheckAchievementOnList(achievement,_AchievementCompletedList) && !_DisturbModeActive)
+        if (!CheckAchievementOnList(achievement,_AchievementCompletedList) && !_DisturbModeActive)
             StartCoroutine(ShowPopUp());
         else if (_DisturbModeActive)
             Debug.Log("Disturb Mode Active");

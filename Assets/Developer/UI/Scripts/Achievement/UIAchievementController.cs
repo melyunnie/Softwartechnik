@@ -41,18 +41,4 @@ public class UIAchievementController : MonoBehaviour
         Completed,
         Blocked
     }
-
-    public enum rarity
-    {
-        Common,
-        Rare,
-        SuperRare,
-        Epic,
-        Legendary
-    }
-
-    public enum Category
-    {
-
-    }
 }

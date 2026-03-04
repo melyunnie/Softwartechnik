@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EventsController : MonoBehaviour
@@ -10,7 +11,12 @@ public class EventsController : MonoBehaviour
     public event Action<AchievementsSO> onAchievementCriteriaFilled;
     public event Action<bool> onOpenLogController;
 
+    public List<AchievementsSO> achievementsSO;
+
     private bool status;
+    public int achievementC = 0;
+
+    [SerializeField] private KeyCode _KeyToOpenLog = KeyCode.Escape;
 
     private void Awake()
     {
@@ -19,8 +25,22 @@ public class EventsController : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            AchievementIsAdd(achievementsSO[achievementC]);
+        }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            AchievementCompleted(achievementsSO[achievementC]);
+        }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            AchievementCriteriaFilled(achievementsSO[achievementC]);
+        }
+
+        if (Input.GetKeyDown(_KeyToOpenLog))
         {
             status = !status;
             OpenLogController(status);

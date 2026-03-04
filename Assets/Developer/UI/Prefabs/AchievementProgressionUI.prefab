@@ -471,9 +471,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AchievementProgressionUI
   _AchievementSlotList: []
-  _AchievementList: []
+  popUpNotificationPrefab: {fileID: 3393875526741121341, guid: 258a41cbb6cbca04095ebbe05c4192b5, type: 3}
+  completedNotificationPrefab: {fileID: 7491284434225334164}
   _AchievementPopUpCanvasGroup: {fileID: 3075111720107566922}
-  _DisturbModeActive: 0
+  achievementPopUp: {fileID: 0}
+  _PopUpDuration: 3
   _AchievementNameText: {fileID: 7864886132074875728}
   _AchievementCriteriaText: {fileID: 6305558439977476614}
   _AchievementProgressBar: {fileID: 5186851733782036625}
