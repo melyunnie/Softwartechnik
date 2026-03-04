@@ -28,7 +28,7 @@ public class UIAchievementController : MonoBehaviour
 
     public virtual void UpdateProgressAchievement(AchievementsSO achievement) {}
 
-    protected AchievementsSO CheckAchievementOnList(AchievementsSO achievement,List<AchievementsSO> achievementList)
+    public AchievementsSO CheckAchievementOnList(AchievementsSO achievement,List<AchievementsSO> achievementList)
     {
         if (achievementList.Contains(achievement))
             return achievement;

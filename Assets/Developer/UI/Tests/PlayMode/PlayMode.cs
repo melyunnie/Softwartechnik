@@ -6,47 +6,61 @@ using UnityEngine.TestTools;
 
 public class PlayMode
 {
-    //private AchievementsSO GetAchievement()
-    //{
-    //    EventsController eventsController = GameObject.FindFirstObjectByType<EventsController>();
+    private AchievementsSO GetAchievement()
+    {
+        EventsController eventsController = GameObject.FindFirstObjectByType<EventsController>();
 
-    //    //AchievementsSO achievement = eventsController.achievementsSO[0];
+        AchievementsSO achievement = eventsController.achievementsSO[0];
 
-    //    //return achievement;
-    //}
+        return achievement;
+    }
 
-    //[UnityTest]
-    //public IEnumerator Check_AddAchievementToLog()
-    //{
-    //    SceneManager.LoadScene("Demo");
-    //    yield return new WaitForSeconds(1f);
+    [UnityTest]
+    public IEnumerator Check_AddAchievementToLog()
+    {
+        SceneManager.LoadScene("DemoScene");
+        yield return new WaitForSeconds(1f);
 
-    //    AchievementLogController achievementLogController = GameObject.FindFirstObjectByType<AchievementLogController>();
-    //    AchievementsSO achievement = GetAchievement();
+        AchievementLogController achievementLogController = GameObject.FindFirstObjectByType<AchievementLogController>();
+        AchievementsSO achievement = GetAchievement();
 
-    //    achievementLogController.AddAchievementToLog(achievement);
+        achievementLogController.AddAchievementToLog(achievement);
 
-    //    yield return null;
+        yield return null;
 
-    //    Assert.IsTrue(UIAchievementController._AchievementList.Contains(achievement));
-    //}
+        Assert.IsTrue(UIAchievementController._AchievementList.Contains(achievement));
+    }
 
-    //[UnityTest]
-    //public IEnumerator Check_IF_AchievementSlotIsClicked()
-    //{
-    //    SceneManager.LoadScene("Demo");
-    //    yield return new WaitForSeconds(1f);
+    [UnityTest]
+    public IEnumerator Check_UpdateProgressAchievement()
+    {
+        SceneManager.LoadScene("DemoScene");
+        yield return new WaitForSeconds(1f);
 
-    //    AchievementsSO achievement = GetAchievement();
 
-    //    AchievementSlot achievementSlot = new GameObject().AddComponent<AchievementSlot>();
+        yield return null;
 
-    //    achievementSlot.AddDataToAchievement(achievement);
-    //    achievementSlot.OnClick();
+    }
 
-    //    yield return null;
+    [UnityTest]
+    public IEnumerator Check_IF_AchievementIsCompleted()
+    {
+        SceneManager.LoadScene("DemoScene");
+        yield return new WaitForSeconds(1f);
 
-    //    Assert.AreEqual(achievementSlot.achievementDescriptionImage.sprite, achievementSlot.achievementSprite);
+        AchievementsSO achievement = GetAchievement();
 
-    //}
+        UIAchievementController UIAchievementController = new GameObject().AddComponent<UIAchievementController>();
+
+        float achievementID = achievement.GetInstanceID();
+
+        if (achievementID == achievement.GetInstanceID() && !UIAchievementController.CheckAchievementOnList(achievement, UIAchievementController._AchievementCompletedList))
+        {
+            Debug.Log("Achievement Completed");
+        }
+
+        yield return null;
+
+        LogAssert.Expect(LogType.Log, "Achievement Completed");
+    }
 }

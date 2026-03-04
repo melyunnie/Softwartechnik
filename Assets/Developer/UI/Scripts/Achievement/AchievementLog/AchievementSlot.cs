@@ -104,6 +104,8 @@ public class AchievementSlot : AchievementLogController, IPointerClickHandler, I
         achievementDescriptionImage.color = Color.white;
         achievementDescriptionName.text = achievementName;
         achievementDescriptionReward.text = achievementSO.reward;
+
+        Debug.Log("Achievement Clicked");
     }
 
     private void SetRarity()

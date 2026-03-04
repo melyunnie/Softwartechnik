@@ -19,7 +19,7 @@ MonoBehaviour:
   reward: Test
   rarity:
     rarity: test
-    rarityColor: {r: 1, g: 0.46226406, b: 0.46226406, a: 0}
+    rarityColor: {r: 1, g: 0.46226406, b: 0.46226406, a: 1}
   category:
     category: 
   visibility:
