@@ -21,7 +21,7 @@ public class Reward : MonoBehaviour,IRewardable
     public void GetReward()
     {
         if (IsGetReward == true && rewardManager.rewards != null)
-        {
+        { Debug.Log("player gets reward");
             for ( i = 0; i < rewardManager.rewards.Count; i++)
             {
                 { // to use your new types use: if (rewardManager.rewards[i].typeofReward == TypeofReward.YouyNewTYype { yourenewTypeMechanik()}
@@ -40,9 +40,9 @@ public class Reward : MonoBehaviour,IRewardable
 
                     if (rewardManager.rewards[i].typeofReward == TypeofReward.Titles)
                     { TextReward(); }
-
+                   
                 }
-            } IsGetReward = false;  
+            } IsGetReward = false; Debug.Log("player should have reward now");
         }
     }  
     
@@ -52,7 +52,7 @@ public class Reward : MonoBehaviour,IRewardable
         CurrencyValueTextExample CurrencyScript = rewardManager.rewards[i].yourIntValue.GetComponent<CurrencyValueTextExample>();
         int YourCurrency = CurrencyScript.Currency;
         CurrencyScript.Currency = currencyAmount + YourCurrency;
-
+        Debug.Log("curency reward:"+ currencyAmount + YourCurrency);
     }
     void XpReward()
     {
@@ -60,18 +60,21 @@ public class Reward : MonoBehaviour,IRewardable
         XpValueTestExample XpScript = rewardManager.rewards[i].yourIntValue.GetComponent<XpValueTestExample>();
         int YourXp = XpScript.XP;
         XpScript.XP = xpAmount + YourXp;
+        Debug.Log("xp reward:" + xpAmount + YourXp);
     }
     void AchivementReward()
     {
         int AchivementAmount = rewardManager.rewards[i].amount;
         AchivementValueTestExample AchivementPointsScript = rewardManager.rewards[i].yourIntValue.GetComponent<AchivementValueTestExample>();
-        int YourXp = AchivementPointsScript.points;
-        AchivementPointsScript.points = AchivementAmount + YourXp;
+        int YourPoints = AchivementPointsScript.points;
+        AchivementPointsScript.points = AchivementAmount + YourPoints;
+        Debug.Log("achivementpoints reward:" + AchivementAmount + YourPoints);
     }
     void InstanziateGameobject() 
     {  
         GameObject InstantiatedGameObject = rewardManager.rewards[i].prefab;
-        InstantiatedGameObject.transform.SetParent(rewardManager.rewards[i].PlaceToStoreReward);
+        Instantiate(InstantiatedGameObject).transform.SetParent(rewardManager.rewards[i].PlaceToStoreReward);
+        Debug.Log(InstantiatedGameObject+"stored in"+ rewardManager.rewards[i].PlaceToStoreReward);
     }
     void TextReward()
     {
@@ -86,5 +89,6 @@ public class Reward : MonoBehaviour,IRewardable
         YourTextBox.text = RewardText;
         YourTextBox.color = Textcolor;
         YourTextBox.font = fontasset;
+        Debug.Log("text in textbox"+ YourTextBox+"changed to "+ RewardText);
     }
 }
