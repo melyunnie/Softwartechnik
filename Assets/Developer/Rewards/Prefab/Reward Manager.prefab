@@ -59,25 +59,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc6f4aa39c63d5c4ebdcded648336a55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rewards:
-  - typeofReward: 4
-    amount: 0
-    yourIntValue: {fileID: 0}
-    prefab: {fileID: 0}
-    PlaceToStoreReward: {fileID: 0}
-    fontsize: 0
-    fontAsset: {fileID: 0}
-    Textcolor: {r: 0, g: 0, b: 0, a: 0}
-    text: 
-    YourTextbox: {fileID: 0}
-  - typeofReward: 1
-    amount: 4
-    yourIntValue: {fileID: 0}
-    prefab: {fileID: 0}
-    PlaceToStoreReward: {fileID: 0}
-    fontsize: 0
-    fontAsset: {fileID: 0}
-    Textcolor: {r: 0, g: 0, b: 0, a: 0}
-    text: 
-    YourTextbox: {fileID: 0}
+  rewards: []
   GetsReward: 0

@@ -16,38 +16,13 @@ public class RewardEditor : Editor
  
    SerializedProperty rewardsProp;
     #endregion
-    //?????????????????-> muss nochmal schauen wie ich das machen kann
-    #region Uservariables
-    //Note:for declearing int values
-
-    //name of the Script Intvalue
-
-    //your int value needts to be public to be used
-
-
-
-    #endregion
-
-    #region Examples of Uservariables
-    CurrencyValueTextExample Intvalue;
-
-    #endregion
-    //?????????????????
     public void OnEnable()
     {
-        
-        
             rewardsProp = serializedObject.FindProperty("rewards");
-        
-
-
     }
     public override void OnInspectorGUI()
     {
         serializedObject.Update();
-
-        //rewards nur einmal oder mehrmals
-
         if (GUILayout.Button("Add Reward"))
         {
             rewardsProp.arraySize++;
@@ -55,6 +30,7 @@ public class RewardEditor : Editor
         
         for (int i = 0; i < rewardsProp.arraySize; i++)
         {
+            //you can add your new value in here:  SerializedProperty NameofYourValue = reward.FindPropertyRelative("NameofYourValue");
             SerializedProperty reward = rewardsProp.GetArrayElementAtIndex(i);
 
             SerializedProperty type = reward.FindPropertyRelative("typeofReward");
@@ -76,6 +52,7 @@ public class RewardEditor : Editor
 
             switch (enumValue)
             {
+                //add your value and or type to the switch like:case RewardManager.TypeofReward.NameofYournew Type: EditorGUILayout.PropertyField(NameofYourValue); break;
                 case RewardManager.TypeofReward.Currency:
                 case RewardManager.TypeofReward.XP:
                 case RewardManager.TypeofReward.Achivemnetpoints:
@@ -90,7 +67,8 @@ public class RewardEditor : Editor
                     break;
 
                 case RewardManager.TypeofReward.Titles:
-                    EditorGUILayout.PropertyField(fontsize); EditorGUILayout.PropertyField(fontAsset);  EditorGUILayout.PropertyField(Textcolor); EditorGUILayout.PropertyField(text, GUILayout.Height(80)); EditorGUILayout.PropertyField(YourTextbox);
+                    EditorGUILayout.PropertyField(fontsize); EditorGUILayout.PropertyField(fontAsset); EditorGUILayout.PropertyField(Textcolor); 
+                    EditorGUILayout.PropertyField(text, GUILayout.Height(80)); EditorGUILayout.PropertyField(YourTextbox);
                     break;
             }
 
@@ -100,8 +78,6 @@ public class RewardEditor : Editor
         {
             rewardsProp.arraySize--;
         }
-        
-
         serializedObject.ApplyModifiedProperties();
     }
 }

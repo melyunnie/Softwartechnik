@@ -9,14 +9,13 @@ public class Reward : MonoBehaviour,IRewardable
     public bool IsGetReward;
     public RewardManager rewardManager;
     int i;
-    //rewards nur einmal oder mehrmals
+    
     void Start()
     {
         
     }
     void Update()
     {
-        
         GetReward();
     }
     public void GetReward()
@@ -25,7 +24,10 @@ public class Reward : MonoBehaviour,IRewardable
         {
             for ( i = 0; i < rewardManager.rewards.Count; i++)
             {
-                {
+                { // to use your new types use: if (rewardManager.rewards[i].typeofReward == TypeofReward.YouyNewTYype { yourenewTypeMechanik()}
+                        //yourenewTypeMechanik(): should contains what should happen when the player reseves your new rewardtype
+
+                  
                     if (rewardManager.rewards[i].typeofReward == TypeofReward.Currency) { CurrencyReward();  }
                     if (rewardManager.rewards[i].typeofReward == TypeofReward.XP) { XpReward();  }
                     if (rewardManager.rewards[i].typeofReward == TypeofReward.Achivemnetpoints) { AchivementReward();  }
@@ -40,9 +42,10 @@ public class Reward : MonoBehaviour,IRewardable
                     { TextReward(); }
 
                 }
-            }IsGetReward = false;  
+            } IsGetReward = false;  
         }
     }  
+    
     void CurrencyReward()
     {
         int currencyAmount = rewardManager.rewards[i].amount;
@@ -65,7 +68,9 @@ public class Reward : MonoBehaviour,IRewardable
         int YourXp = AchivementPointsScript.points;
         AchivementPointsScript.points = AchivementAmount + YourXp;
     }
-    void InstanziateGameobject() {  GameObject InstantiatedGameObject = rewardManager.rewards[i].prefab;
+    void InstanziateGameobject() 
+    {  
+        GameObject InstantiatedGameObject = rewardManager.rewards[i].prefab;
         InstantiatedGameObject.transform.SetParent(rewardManager.rewards[i].PlaceToStoreReward);
     }
     void TextReward()
