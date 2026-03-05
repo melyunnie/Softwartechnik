@@ -15,7 +15,7 @@ public class AchievementToastNotifications : UIAchievementController
     {
         if(CheckAchievementOnList(achievement, _AchievementList))
         {
-            SetPopUp(achievement);
+            SetCompletedPopUp(achievement);
             return;
         }
 
@@ -26,14 +26,16 @@ public class AchievementToastNotifications : UIAchievementController
     {
         if (CheckAchievementOnList(achievement, _AchievementList))
         {
-            SetPopUp(achievement);
+            SetProgressPopUP(achievement);
             return;
         }
 
         Debug.Log("Achievement not found in log");
     }
 
-    public virtual void SetPopUp(AchievementsSO achievement) {}
+    public virtual void SetCompletedPopUp(AchievementsSO achievement) {}
+
+    public virtual void SetProgressPopUP(AchievementsSO achievement) {}
 
     protected IEnumerator ShowPopUp()
     {

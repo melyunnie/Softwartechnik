@@ -306,6 +306,10 @@ PrefabInstance:
       propertyPath: m_fontStyle
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8731332593129560067, guid: 6e746c83f2dbc644f8273ce64b603123, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.0024414062
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -314,11 +318,6 @@ PrefabInstance:
       addedObject: {fileID: 830419056}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e746c83f2dbc644f8273ce64b603123, type: 3}
---- !u!224 &601872338 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7922171724791222317, guid: a94900386bad9864b808b5f9c2deaf48, type: 3}
-  m_PrefabInstance: {fileID: 7992151283113535104}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &728269510
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -507,8 +506,7 @@ Transform:
   m_LocalPosition: {x: 0.16548057, y: 0.028940082, z: -0.53256035}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 601872338}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1222043433
@@ -730,7 +728,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1099655215}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 400456002422804088, guid: a94900386bad9864b808b5f9c2deaf48, type: 3}
       propertyPath: m_UiScaleMode
@@ -878,3 +876,4 @@ SceneRoots:
   - {fileID: 248011409}
   - {fileID: 33211561}
   - {fileID: 1099655215}
+  - {fileID: 7992151283113535104}

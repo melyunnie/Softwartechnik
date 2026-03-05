@@ -10,7 +10,7 @@ public class AchievementProgressionUI : AchievementToastNotifications
     [SerializeField] private Slider _AchievementProgressBar;
     [SerializeField] private TMP_Text _AchievementProgressText;
 
-    public override void SetPopUp(AchievementsSO achievement)
+    public override void SetProgressPopUP(AchievementsSO achievement)
     {
         _AchievementNameText.text = achievement.achievementName;
         _AchievementCriteriaText.text = achievement.achievementDescriptionCriterias;

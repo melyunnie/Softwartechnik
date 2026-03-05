@@ -8,7 +8,7 @@ public class AchievementPopUp : AchievementToastNotifications
     [SerializeField] private Image _AchievementIcon;
     [SerializeField] private TMP_Text _AchievementNameText;
 
-    public override void SetPopUp(AchievementsSO achievement)
+    public override void SetCompletedPopUp(AchievementsSO achievement)
     {
         _AchievementIcon.sprite = achievement.achievementSprite;
         _AchievementNameText.text = achievement.achievementName;

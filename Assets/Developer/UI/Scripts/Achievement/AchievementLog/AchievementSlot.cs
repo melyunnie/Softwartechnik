@@ -125,9 +125,6 @@ public class AchievementSlot : AchievementLogController, IPointerClickHandler, I
         
         if(achievementVisibility != visibility.Secret)
             _StatusGameObject.SetActive(!status);
-
-        if(status)
-            achievementDescriptionReward.text = $"<s>{achievementSO.reward}<s>";
     }
 
     public void CheckAchievementStatus(AchievementsSO achievementSO)
