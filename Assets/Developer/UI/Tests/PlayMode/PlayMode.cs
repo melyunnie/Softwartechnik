@@ -3,6 +3,7 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
+using Unity.PerformanceTesting;
 
 public class PlayMode
 {
@@ -15,7 +16,7 @@ public class PlayMode
         return achievement;
     }
 
-    [UnityTest]
+    [UnityTest, Performance]
     public IEnumerator Check_AddAchievementToLog()
     {
         SceneManager.LoadScene("DemoScene");
@@ -29,6 +30,11 @@ public class PlayMode
         yield return null;
 
         Assert.IsTrue(UIAchievementController._AchievementList.Contains(achievement));
+
+        Measure.Method(() =>
+        {
+            Check_AddAchievementToLog();
+        }).WarmupCount(10).MeasurementCount(30).Run();
     }
 
     [UnityTest]
@@ -42,7 +48,7 @@ public class PlayMode
 
     }
 
-    [UnityTest]
+    [UnityTest, Performance]
     public IEnumerator Check_IF_AchievementIsCompleted()
     {
         SceneManager.LoadScene("DemoScene");
@@ -62,5 +68,10 @@ public class PlayMode
         yield return null;
 
         LogAssert.Expect(LogType.Log, "Achievement Completed");
+
+        Measure.Method(() =>
+        {
+            Check_IF_AchievementIsCompleted();
+        }).WarmupCount(10).MeasurementCount(30).Run();
     }
 }

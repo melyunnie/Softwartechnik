@@ -152,6 +152,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2ad5b2c586304d947bdfb48943908a7a, type: 2}
   achievementC: 0
   _KeyToOpenLog: 27
+  _CompletedAchievement: 97
+  _CriteriaFilledAchievement: 100
+  _AddAchievement: 32
 --- !u!4 &33211561
 Transform:
   m_ObjectHideFlags: 0
@@ -293,6 +296,14 @@ PrefabInstance:
       objectReference: {fileID: 7491284434225334164, guid: cb535a8df563ee04a9c19dfde246b7ee, type: 3}
     - target: {fileID: 6125268655441273492, guid: 6e746c83f2dbc644f8273ce64b603123, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7242034986868173578, guid: 6e746c83f2dbc644f8273ce64b603123, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7242034986868173578, guid: 6e746c83f2dbc644f8273ce64b603123, type: 3}
+      propertyPath: m_fontStyle
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -273,5 +273,5 @@ MonoBehaviour:
   _AchievementSlotList: []
   _AchievementPopUpCanvasGroup: {fileID: 0}
   _PopUpDuration: 3
-  _ActiveColor: {r: 1, g: 0.4764151, b: 0.4764151, a: 1}
-  _UnActiveColor: {r: 0.5235849, g: 1, b: 0.6380307, a: 1}
+  _ActiveColor: {r: 0.5254902, g: 1, b: 0.6392157, a: 1}
+  _UnActiveColor: {r: 1, g: 0.4745098, b: 0.4745098, a: 1}

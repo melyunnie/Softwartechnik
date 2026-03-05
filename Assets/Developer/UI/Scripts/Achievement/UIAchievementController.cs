@@ -20,7 +20,7 @@ public class UIAchievementController : MonoBehaviour
 
     }
 
-    public virtual void ShowLogController(bool status) {}
+    public virtual void ShowLogController() {}
 
     public virtual void AddAchievementToLog(AchievementsSO achievementSO) {}
 

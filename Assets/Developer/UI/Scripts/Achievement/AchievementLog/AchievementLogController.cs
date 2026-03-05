@@ -17,10 +17,14 @@ public class AchievementLogController : UIAchievementController
     [SerializeField] protected TMP_Text _AchievementDescriptionProgress;
     public TMP_Text achievementDescriptionReward;
 
+    private bool _StatusLogController;
 
-    public override void ShowLogController(bool status)
+
+    public override void ShowLogController()
     {
-        if (status)
+        _StatusLogController = !_StatusLogController;
+
+        if (_StatusLogController)
             GetComponent<CanvasGroup>().alpha = 1;
         else
             GetComponent<CanvasGroup>().alpha = 0;
