@@ -9,7 +9,7 @@ public class WeightedCriteriaDefinitionSO : ScriptableObject, ICriteriaDefinitio
 
     public int targetScore;
 
-    public List<WeightedEvent> weightedEvents = new();
+    public List<WeightedEvent> weightedEvents = new List<WeightedEvent>();
 }
 
 
