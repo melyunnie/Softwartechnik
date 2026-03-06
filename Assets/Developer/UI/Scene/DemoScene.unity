@@ -149,8 +149,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   achievementsSO:
-  - {fileID: 11400000, guid: 2ad5b2c586304d947bdfb48943908a7a, type: 2}
-  achievementC: 0
+  - {fileID: 11400000, guid: 22c317faa2dca3f448831f4fdff2893f, type: 2}
+  - {fileID: 11400000, guid: 46d596753d06089459a37ffe527ceecf, type: 2}
+  - {fileID: 11400000, guid: a42a999a8a3bc87488c39778799bd569, type: 2}
+  achievementCount: 0
   _KeyToOpenLog: 27
   _CompletedAchievement: 97
   _CriteriaFilledAchievement: 100

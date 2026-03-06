@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 27c9c96f073d1f94b9af0b65f4be12ea, type: 3}
-  m_Name: Test1
+  m_Name: Achievement2
   m_EditorClassIdentifier: 
-  achievementName: Test
-  achievementSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  achievementName: Achievement2
+  achievementSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   achievementStatus: 1
-  achievementDescriptionCriterias: Test
-  reward: Test
+  achievementDescriptionCriterias: Test of Achievement2
+  reward: Weapon Skin
   rarity:
-    rarity: test
-    rarityColor: {r: 1, g: 0.46226406, b: 0.46226406, a: 1}
+    rarity: Legendary
+    rarityColor: {r: 1, g: 0.74059236, b: 0.3254717, a: 1}
   category:
-    category: 
+    category: Skin
   visibility:
     achievementVisibility: 0
     achievementSecretName: 

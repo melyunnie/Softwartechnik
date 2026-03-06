@@ -14,8 +14,7 @@ public class EventsController : MonoBehaviour
 
     public List<AchievementsSO> achievementsSO;
 
-    private bool status;
-    public int achievementC = 0;
+    public int achievementCount = 0;
 
     private Dictionary<KeyCode, Action> _KeyInputs;
 
@@ -33,9 +32,9 @@ public class EventsController : MonoBehaviour
     {
         _KeyInputs = new()
         {
-            {_AddAchievement, () => AchievementIsAdd(achievementsSO[achievementC])},
-            {_CompletedAchievement, () => AchievementCompleted(achievementsSO[achievementC])},
-            {_CriteriaFilledAchievement, () => AchievementCriteriaFilled(achievementsSO[achievementC])},
+            {_AddAchievement, () => AchievementIsAdd(achievementsSO[achievementCount])},
+            {_CompletedAchievement, () => AchievementCompleted(achievementsSO[achievementCount])},
+            {_CriteriaFilledAchievement, () => AchievementCriteriaFilled(achievementsSO[achievementCount])},
             {_KeyToOpenLog, OpenLogController},
         };
     }
