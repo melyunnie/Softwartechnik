@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c75d07c6b3114df40a6f003fca96f5ee, type: 3}
+  m_Name: ACH_Goblin_Slayer
+  m_EditorClassIdentifier: 
+  id: 1234
+  title: Goblin Slayer
+  description: Destroy your first horde of goblins
+  criteriaDefinitions:
+  - {fileID: 11400000, guid: d643507f1c9130b47bdb3d2f40f376c4, type: 2}
+  requiredAchievements:
+  - {fileID: 11400000, guid: df54b5b4c7d78c8469448fbf44bb2b19, type: 2}
+  repeatable: 0
+  cooldownSeconds: 0
+  scope: 2
